@@ -1,6 +1,6 @@
 on: [push]
 
-name: Datadog Static Code Analysis
+name: Datadog Static Analysis
 
 jobs:
   static-analysis:
