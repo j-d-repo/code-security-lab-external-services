@@ -16,12 +16,14 @@ sns_client = boto3.client("sns")
 with open("config.yaml", "r") as f:
     config = yaml.safe_load(f)
 
+import os
+
 def get_db_connection():
     connection = mysql.connector.connect(
-        host="db.techstories.com",
-        user="db.example.com",
-        passwd="SuperSecret123!",
-        database="user_insights",
+        host=os.environ.get("DB_HOST"),
+        user=os.environ.get("DB_USER"),
+        passwd=os.environ.get("DB_PASSWORD"),
+        database=os.environ.get("DB_NAME"),
         charset='utf8mb4',
         use_pure=True,
         connection_timeout=5)
